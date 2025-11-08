@@ -1,0 +1,29 @@
+# build & artifacts
+build/
+cmake-build-*/
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.exe
+*.bin
+*.log
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS/editor
+.DS_Store
+*.swp
+.vscode/
+
+# media/big files
+*.mp4
+*.mov
+*.zip
+*.dmg

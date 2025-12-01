@@ -11,31 +11,61 @@ Market data replay and analysis tool for backtesting and strategy validation.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                  Market Replay Engine                       │
+│           MARKET_REPLAY - Data Replay & Analysis            │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐    │
-│  │    Data      │  │    Parser    │  │    Replay    │    │
-│  │  Ingestion   │─▶│    Engine    │─▶│    System    │    │
-│  │  (ITCH/CSV)  │  │  (Protocol)  │  │  (Timeline)  │    │
-│  └──────────────┘  └──────────────┘  └──────────────┘    │
-│         │                  │                   │           │
-│         ▼                  ▼                   ▼           │
-│  ┌──────────────────────────────────────────────────┐    │
-│  │         Market Data Processing Pipeline         │    │
-│  │         (Normalization, Validation)              │    │
-│  └──────────────────────────────────────────────────┘    │
-│         │                                                  │
-│         ▼                                                  │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐   │
-│  │  Analytics   │  │  Backtester  │  │  Metrics &   │   │
-│  │   Engine     │─▶│   (Strategy) │─▶│  Reporting   │   │
-│  │              │  │              │  │              │   │
-│  └──────────────┘  └──────────────┘  └──────────────┘   │
-│                                                           │
-└─────────────────────────────────────────────────────────┘
-
-Technology Stack: Python 3.10+, pandas, numpy, pytest
+│  ┌────────────────────────────────────────────┐           │
+│  │       Data Ingestion Layer                 │           │
+│  │  • ITCH protocol files                     │           │
+│  │  • CSV market data                         │           │
+│  │  • Historical trade logs                   │           │
+│  └─────────────────┬──────────────────────────┘           │
+│                    │                                        │
+│                    ▼                                        │
+│  ┌────────────────────────────────────────────┐           │
+│  │       Parser Engine                        │           │
+│  │  • Protocol decoding                       │           │
+│  │  • Message sequencing                      │           │
+│  │  • Timestamp normalization                 │           │
+│  └─────────────────┬──────────────────────────┘           │
+│                    │                                        │
+│                    ▼                                        │
+│  ┌────────────────────────────────────────────┐           │
+│  │       Replay System (Timeline)             │           │
+│  │  • Time-accurate playback                  │           │
+│  │  • Speed control (1x, 10x, 100x)           │           │
+│  │  • Event streaming                         │           │
+│  └─────────────────┬──────────────────────────┘           │
+│                    │                                        │
+│                    ▼                                        │
+│  ┌────────────────────────────────────────────┐           │
+│  │       Analytics Engine                     │           │
+│  │  • Order flow analysis                     │           │
+│  │  • Price impact studies                    │           │
+│  │  • Liquidity metrics                       │           │
+│  │  • Trade reconstruction                    │           │
+│  └─────────────────┬──────────────────────────┘           │
+│                    │                                        │
+│                    ▼                                        │
+│  ┌────────────────────────────────────────────┐           │
+│  │       Backtesting Framework                │           │
+│  │  • Strategy simulation                     │           │
+│  │  • Performance metrics                     │           │
+│  │  • Risk calculations                       │           │
+│  └─────────────────┬──────────────────────────┘           │
+│                    │                                        │
+│                    ▼                                        │
+│  ┌────────────────────────────────────────────┐           │
+│  │       Reporting & Visualization            │           │
+│  │  • Trade journals                          │           │
+│  │  • Performance charts                      │           │
+│  │  • Risk reports                            │           │
+│  └────────────────────────────────────────────┘           │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-Starter repo.
+**Purpose:** Historical market data replay for strategy testing
+**Timeline:** Precise time-accurate playback engine
+**Tech Stack:** Python 3.10+, pandas, numpy, pytest
+**Analysis:** Order flow, liquidity, price impact studies
